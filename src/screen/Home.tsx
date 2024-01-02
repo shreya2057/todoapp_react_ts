@@ -43,10 +43,7 @@ function Home(){
                         </Stack>
                     </Box>
                 </Flex>
-            </Flex>
-            
-            
-            
+            </Flex>       
         </Flex>
     );
 }
