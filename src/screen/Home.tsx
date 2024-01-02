@@ -1,8 +1,12 @@
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
+
 function Home(){
     return(
-        <>
-            <h1>HomeScreen</h1>
-        </>
+        <Flex direction={"column"} p={0} m={0}>
+            <Navbar/>
+            <Heading fontSize="xl">HomeScreen</Heading>
+        </Flex>
     );
 }
 
