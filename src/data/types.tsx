@@ -4,3 +4,8 @@ export interface TaskData{
     start: Date,
     end: Date
 }
+
+export interface Response{
+    status: number,
+    message: string | object
+}

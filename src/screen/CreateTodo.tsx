@@ -9,36 +9,72 @@ import {
     useBreakpointValue,
     Stack,
     Center,
-    Button
+    Button,
+    Alert,
+    AlertIcon
 } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Categories from "../components/Categories";
-import { TaskData } from "../data/types";
+import { Response, TaskData } from "../data/types";
+import { create_operation } from "../services/crud";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateTodoScreen(){
     const {register, control, formState:{errors}, handleSubmit} = useForm<TaskData>();
     const { fields, append, remove } = useFieldArray<any>({
         control,
         name: "category"
-    })
+    });
+    const [alertVisible, setVisible] = useState<Boolean>(false);
+    const [alertMessage, setAlertMessage] = useState<string>("");
+    const navigate = useNavigate();
     const width = useBreakpointValue({"sm": 200, "md": 300});
     const visibility = useBreakpointValue({"sm": false, "md":true});
 
-    const submit_data: SubmitHandler<TaskData> = (formdata)=>{
-        console.log(formdata)
+    const submit_data: SubmitHandler<TaskData> = async (formdata)=>{
+        const response: Response = await create_operation(formdata);
+        if(response.status===201){
+            setVisible(true);
+            if(typeof(response.message)==="string"){
+                setAlertMessage(response.message);
+                setTimeout(()=>{
+                    setVisible(false);
+                    setAlertMessage("");
+                    navigate('/');
+                }, 2000);
+            }
+            
+        } else{
+            setVisible(true);
+            if(typeof(response.message)==="string"){
+                setAlertMessage(response.message);
+                setTimeout(()=>{
+                    setVisible(false);
+                    setAlertMessage("");
+                }, 2000);
+            }
+        }
     }
 
     const addCategory = () => {
         if(fields.length<2){
             append(null);
         }
-        
       };
     
     return(
         <>  
             <Flex height={"100vh"} direction={"column"} p={0} m={0}>
             <Navbar/>
+            {
+                alertVisible 
+                &&  
+                <Alert status='success'>
+                    <AlertIcon />
+                    {alertMessage}
+                </Alert>
+            }
             <Flex width={"100%"} height={"100%"}>
                 {
                     visibility 
