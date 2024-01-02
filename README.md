@@ -1,30 +1,48 @@
-# React + TypeScript + Vite
+# Day2 Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About 
 
-Currently, two official plugins are available:
+The Day2 Task is the creation of Todo App that is reponsive, allows user to add task, categories of task, start date and end date. The user can also view created task. The main feature of ths app is multiple categories of task can be added.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features 🧑‍💻
 
-## Expanding the ESLint configuration
+- Create task.
+- View task.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Run Locally (Development Environment) ⚒️
 
-- Configure the top-level `parserOptions` property like this:
+#### Clone the repository and navigate to the project root directory. 
+Make sure you have [npm and Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your machine.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+# Get packages
+$ npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+```bash
+# Run the applicaton
+$ npm run dev
+```
+
+```bash
+# Run server
+$ json-server --watch .\src\server\db.json
+
+```
+
+
+## Tech Used 💻
+
+- React.js
+- Chakra UI
+- React-hook-form: useForm, useFieldArray
+- Axios
+- TypeScript
+
+
+## Installed tools and libraries
+
+- Chakra UI
+- Chakra Icons
+- Axios
+
