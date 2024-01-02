@@ -1,8 +1,6 @@
-import { Box, Divider, Flex, Heading, ListItem, Stack, UnorderedList, Text, useBreakpointValue } from "@chakra-ui/react";
-import { InfoIcon } from "@chakra-ui/icons";
+import { Box, Flex, Heading, Stack, useBreakpointValue } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import TodoCard from "../components/TodoCard";
-import { task_categories } from "../data/task_categories";
 import Categories from "../components/Categories";
 
 function Home(){
